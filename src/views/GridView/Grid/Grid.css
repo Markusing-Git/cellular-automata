@@ -1,0 +1,12 @@
+.GridContainer{
+    margin-top: 20px;
+    line-height:0;
+}
+
+.Cell {
+    width: 5px;
+    height: 5px;
+    outline: 1px solid rgb(0, 0, 0);
+    background-color: white;
+    display: inline-block;
+}
