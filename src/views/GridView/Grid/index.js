@@ -2,21 +2,83 @@ import React, { useState, useEffect } from 'react';
 import './Grid.css';
 import Cell from './Cell';
 
+const ROWS = 100;
+const COLS = 150;
+
 const Grid = () => {
   const [grid, setGrid] = useState([]);
+  const config = {
+    111: false,
+    110: false,
+    101: false,
+    100: true,
+    '011': true,
+    '010': true,
+    '001': true,
+    '000': false,
+  };
 
-  const createCell = (col, row) => ({
+  const createCell = (col, row, isAlive) => ({
     col,
     row,
-    isAlive: false,
+    isAlive,
   });
+
+  const getParents = (col, row, currCells) => {
+    let parents = '';
+    if ((col) >= 1 && col < grid[row].length - 1) {
+      if (currCells[row - 1][col - 1].isAlive === true) {
+        parents = parents.concat('1');
+      } else {
+        parents = parents.concat('0');
+      }
+      if (currCells[row - 1][col].isAlive === true) {
+        parents = parents.concat('1');
+      } else {
+        parents = parents.concat('0');
+      }
+      if (currCells[row - 1][col + 1].isAlive === true) {
+        parents = parents.concat('1');
+      } else {
+        parents = parents.concat('0');
+      }
+    }
+    return parents;
+  };
+
+  const reproduce = (col, row, currCells) => {
+    const parents = getParents(col, row, currCells);
+    return config[parents];
+  };
 
   const initGrid = () => {
     const cells = [];
-    for (let row = 0; row < 100; row++) {
+    for (let row = 0; row < ROWS; row++) {
       const currentRow = [];
-      for (let col = 0; col < 150; col++) {
-        currentRow.push(createCell(col, row));
+      for (let col = 0; col < COLS; col++) {
+        if (row === 0 && col === COLS / 2) {
+          currentRow.push(createCell(col, row, true));
+        } else {
+          currentRow.push(createCell(col, row, false));
+        }
+      }
+      cells.push(currentRow);
+    }
+    return cells;
+  };
+
+  const generateCells = () => {
+    const cells = [];
+    for (let row = 0; row < ROWS; row++) {
+      const currentRow = [];
+      for (let col = 0; col < COLS; col++) {
+        if (row === 0 && col === COLS / 2) {
+          currentRow.push(createCell(col, row, true));
+        } else if (row !== 0 && reproduce(col, row, cells)) {
+          currentRow.push(createCell(col, row, true));
+        } else {
+          currentRow.push(createCell(col, row, false));
+        }
       }
       cells.push(currentRow);
     }
@@ -24,8 +86,12 @@ const Grid = () => {
   };
 
   useEffect(() => {
-    setGrid(initGrid);
+    setGrid(initGrid());
   }, []);
+
+  const handleGenereateClick = () => {
+    setGrid(generateCells());
+  };
 
   return (
     <div className="GridContainer">
