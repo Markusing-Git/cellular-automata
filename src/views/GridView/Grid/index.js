@@ -84,9 +84,9 @@ const Grid = ({ rules }) => {
   };
 
   return (
-    <>
-      <button onClick={() => handleGenereateClick()} />
-      <div className="GridContainer">
+    <div className="GridContainer">
+
+      <div className="GridWrapper">
         {grid.map((row, rowIdx) => (
           <div key={rowIdx}>
             {row.map((cell, cellIdx) => (
@@ -100,7 +100,13 @@ const Grid = ({ rules }) => {
           </div>
         ))}
       </div>
-    </>
+      <button
+        className="GenerateButton"
+        onClick={() => handleGenereateClick()}
+      >
+        Generate!
+      </button>
+    </div>
   );
 };
 
