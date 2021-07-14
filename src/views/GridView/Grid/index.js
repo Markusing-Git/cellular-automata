@@ -5,18 +5,8 @@ import Cell from './Cell';
 const ROWS = 100;
 const COLS = 150;
 
-const Grid = () => {
+const Grid = ({ rules }) => {
   const [grid, setGrid] = useState([]);
-  const config = {
-    111: false,
-    110: false,
-    101: false,
-    100: true,
-    '011': true,
-    '010': true,
-    '001': true,
-    '000': false,
-  };
 
   const createCell = (col, row, isAlive) => ({
     col,
@@ -48,7 +38,7 @@ const Grid = () => {
 
   const reproduce = (col, row, currCells) => {
     const parents = getParents(col, row, currCells);
-    return config[parents];
+    return rules[parents];
   };
 
   const initGrid = () => {
@@ -94,20 +84,23 @@ const Grid = () => {
   };
 
   return (
-    <div className="GridContainer">
-      {grid.map((row, rowIdx) => (
-        <div key={rowIdx}>
-          {row.map((cell, cellIdx) => (
-            <Cell
-              key={cellIdx}
-              col={cell.col}
-              isAlive={cell.isAlive}
-              row={cell.row}
-            />
-          ))}
-        </div>
-      ))}
-    </div>
+    <>
+      <button onClick={() => handleGenereateClick()} />
+      <div className="GridContainer">
+        {grid.map((row, rowIdx) => (
+          <div key={rowIdx}>
+            {row.map((cell, cellIdx) => (
+              <Cell
+                key={cellIdx}
+                col={cell.col}
+                isAlive={cell.isAlive}
+                row={cell.row}
+              />
+            ))}
+          </div>
+        ))}
+      </div>
+    </>
   );
 };
 
