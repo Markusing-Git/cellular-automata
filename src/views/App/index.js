@@ -17,10 +17,13 @@ const App = () => {
     },
   );
   return (
-    <div className="App">
-      <GridView rules={rules} />
-      <CustomRules rules={rules} setRules={setRules} />
-    </div>
+    <>
+      <div className="Background" />
+      <div className="App">
+        <GridView rules={rules} />
+        <CustomRules rules={rules} setRules={setRules} />
+      </div>
+    </>
   );
 };
 
