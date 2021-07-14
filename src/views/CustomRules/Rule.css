@@ -17,3 +17,7 @@
     width: 2vmax;
     height: 2vmax;
 }
+
+.Block-select {
+    cursor: pointer;
+}
