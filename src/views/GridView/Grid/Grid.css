@@ -11,8 +11,12 @@
 .Cell {
     width: 5px;
     height: 5px;
-    outline: 1px solid rgb(0, 0, 0);
+    outline: 1px solid rgba(0, 0, 0, 0.404);
     display: inline-block;
+}
+
+.Cell-alive {
+    background-color: black;
 }
 
 .GenerateButton {
