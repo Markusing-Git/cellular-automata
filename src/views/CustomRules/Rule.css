@@ -1,0 +1,23 @@
+.RuleContainer{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.Rule{
+    width: 7vmax;
+    height: 4vmax;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+.Block {
+    border: 1px solid black;
+    margin: 1px;
+    width: 2vmax;
+    height: 2vmax;
+}
+
+.Block-select {
+    cursor: pointer;
+}
