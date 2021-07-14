@@ -1,5 +1,10 @@
 .GridContainer{
-    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.GridWrapper{
+    margin-top: 3vh;
     line-height:0;
 }
 
@@ -7,6 +12,30 @@
     width: 5px;
     height: 5px;
     outline: 1px solid rgb(0, 0, 0);
-    background-color: white;
     display: inline-block;
+}
+
+.GenerateButton {
+    display:inline-block;
+    padding:0.7em 1.7em;
+    border-radius:0.2em;
+    transition: border-width 0.1s linear;
+    box-sizing: border-box;
+    text-decoration:none;
+    font-family:'Roboto',sans-serif;
+    font-weight:400;
+    color:#000000;
+    background-color:#cccccc;
+    box-shadow:inset 0 -0.6em 1em -0.35em rgba(0,0,0,0.17),inset 0 0.6em 2em -0.3em rgba(255,255,255,0.15),inset 0 0 0em 0.05em rgba(255,255,255,0.12);
+    text-align:center;
+    width: 60%;
+    margin: auto;
+}
+
+.GenerateButton:active{
+    box-shadow:inset 0 0.6em 2em -0.3em rgba(0,0,0,0.15),inset 0 0 0em 0.05em rgba(255,255,255,0.12);
+}
+
+.GenerateButton:hover{
+    border-width: 0.2em;
 }
