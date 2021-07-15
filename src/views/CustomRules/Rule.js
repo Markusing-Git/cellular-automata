@@ -1,34 +1,38 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Rule.css';
 
-const Rule = ({ pattern, setRules }) => {
+const Rule = ({ index, onRuleChange }) => {
   const [selected, setSelected] = useState(false);
 
   const handleToggleSelected = () => {
     setSelected(!selected);
   };
 
-  const getPattern = (pos) => {
-    if (pattern.charAt(pos) == 1) {
-      return 'black';
+  const getPattern = () => {
+    switch (index) {
+      case 0: return ['black', 'black', 'black'];
+      case 1: return ['black', 'black', 'white'];
+      case 2: return ['black', 'white', 'black'];
+      case 3: return ['black', 'white', 'white'];
+      case 4: return ['white', 'black', 'black'];
+      case 5: return ['white', 'black', 'white'];
+      case 6: return ['white', 'white', 'black'];
+      case 7: return ['white', 'white', 'white'];
+      default: throw Error(`indexing error ${index}`);
     }
-    return null;
   };
 
   useEffect(() => {
-    setRules((prevState) => ({
-      ...prevState,
-      [pattern]: selected,
-    }));
+    onRuleChange(index, selected);
   }, [selected]);
 
   return (
     <div className="Rule">
-      <div className="Block" style={{ backgroundColor: getPattern(0) }} />
-      <div className="Block" style={{ backgroundColor: getPattern(1) }} />
-      <div className="Block" style={{ backgroundColor: getPattern(2) }} />
+      <div className="Block" style={{ backgroundColor: getPattern()[0] }} />
+      <div className="Block" style={{ backgroundColor: getPattern()[1] }} />
+      <div className="Block" style={{ backgroundColor: getPattern()[2] }} />
       <div
         className="Block Block-select"
         style={selected ? { backgroundColor: 'black' } : {
