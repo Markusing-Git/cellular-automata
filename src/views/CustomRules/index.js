@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './CustomRules.css';
 import Rule from './Rule';
 
@@ -20,6 +21,11 @@ const CustomRules = ({ rules, setRules }) => {
       </div>
     </div>
   );
+};
+
+CustomRules.propTypes = {
+  rules: PropTypes.array,
+  setRules: PropTypes.func,
 };
 
 export default CustomRules;

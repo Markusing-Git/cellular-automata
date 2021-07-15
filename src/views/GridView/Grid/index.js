@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import './Grid.css';
 import Cell from './Cell';
 
@@ -103,6 +104,10 @@ const Grid = ({ rules }) => {
       </button>
     </div>
   );
+};
+
+Grid.propTypes = {
+  rules: PropTypes.array,
 };
 
 export default Grid;

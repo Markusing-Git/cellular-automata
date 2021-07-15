@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './Grid.css';
 
 const Cell = ({ row, col, isAlive }) => {
@@ -16,6 +17,16 @@ const Cell = ({ row, col, isAlive }) => {
       style={animation}
     />
   );
+};
+
+Cell.propTypes = {
+  row: PropTypes.number,
+  col: PropTypes.number,
+  isAlive: PropTypes.bool,
+};
+
+Cell.defaultProps = {
+  isAlive: false,
 };
 
 export default Cell;
