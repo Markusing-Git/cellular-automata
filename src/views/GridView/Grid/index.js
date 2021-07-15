@@ -14,23 +14,18 @@ const Grid = ({ rules }) => {
     isAlive,
   });
 
+  // based on the rules, think binary
   const getParents = (col, row, currCells) => {
-    let parents = '';
+    let parents = 7;
     if ((col) >= 1 && col < grid[row].length - 1) {
       if (currCells[row - 1][col - 1].isAlive === true) {
-        parents = parents.concat('1');
-      } else {
-        parents = parents.concat('0');
+        parents -= 4;
       }
       if (currCells[row - 1][col].isAlive === true) {
-        parents = parents.concat('1');
-      } else {
-        parents = parents.concat('0');
+        parents -= 2;
       }
       if (currCells[row - 1][col + 1].isAlive === true) {
-        parents = parents.concat('1');
-      } else {
-        parents = parents.concat('0');
+        parents -= 1;
       }
     }
     return parents;
