@@ -11,8 +11,10 @@ const CustomRules = ({ rules, setRules }) => {
   };
   return (
     <div className="CustomRulesContainer">
-      <div className="CustomRulesPanel">
+      <div className="HeadingContainer">
         <div className="Heading">Customize your rules</div>
+      </div>
+      <div className="CustomRulesPanel">
         <div className="RulesWrapper">
           {rules.map((rule, index) => (
             <Rule index={index} onRuleChange={updateRuleChange} />
