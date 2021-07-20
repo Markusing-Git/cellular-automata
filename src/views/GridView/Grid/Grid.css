@@ -15,8 +15,8 @@
 }
 
 .Cell {
-    width: 5px;
-    height: 5px;
+    height: 10px;
+    width: 10px;
     outline: 1px solid rgba(0, 0, 0, 0.404);
     display: inline-block;
 }
@@ -68,4 +68,11 @@
 .GenerateButton:hover{
     color:rgb(5, 5, 5);
     background-color: white;
+}
+
+@media (max-height: 730px){
+    .Cell{
+        width: 7px;
+        height: 7px;
+    }
 }

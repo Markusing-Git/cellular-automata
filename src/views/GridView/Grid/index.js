@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import './Grid.css';
 import Cell from './Cell';
 
-const ROWS = 100;
-const COLS = 150;
+const ROWS = 90;
+const COLS = 176;
 
 const Grid = ({ rules }) => {
   const [grid, setGrid] = useState([]);
@@ -81,7 +81,6 @@ const Grid = ({ rules }) => {
 
   return (
     <div className="GridContainer">
-
       <div className="GridWrapper">
         {grid.map((row, rowIdx) => (
           <div key={rowIdx}>
