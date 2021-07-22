@@ -79,6 +79,10 @@ const Grid = ({ rules }) => {
     setGrid(generateCells());
   };
 
+  const handleClearClick = () => {
+    setGrid(initGrid());
+  };
+
   return (
     <div className="GridContainer">
       <div className="GridWrapper">
@@ -95,12 +99,20 @@ const Grid = ({ rules }) => {
           </div>
         ))}
       </div>
-      <button
-        className="GenerateButton"
-        onClick={() => handleGenereateClick()}
-      >
-        Generate!
-      </button>
+      <div className="ButtonContainer">
+        <button
+          className="GenerateButton"
+          onClick={() => handleClearClick()}
+        >
+          Clear
+        </button>
+        <button
+          className="GenerateButton"
+          onClick={() => handleGenereateClick()}
+        >
+          Generate!
+        </button>
+      </div>
     </div>
   );
 };
