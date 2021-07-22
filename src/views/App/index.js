@@ -2,7 +2,6 @@
 import React, { useState } from 'react';
 import './App.css';
 import GridView from '../GridView';
-import CustomRules from '../CustomRules';
 
 const App = () => {
   const [rules, setRules] = useState(
@@ -12,8 +11,7 @@ const App = () => {
     <>
       <div className="Background" />
       <div className="App">
-        <GridView rules={rules} />
-        <CustomRules rules={rules} setRules={setRules} />
+        <GridView rules={rules} setRules={setRules} />
       </div>
     </>
   );
