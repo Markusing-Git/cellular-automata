@@ -12,7 +12,7 @@
 }
 
 .HeadingContainer {
-    background-color: white;
+    background-color: #FDFBf9;
     height: 15%;
     width: 70%;
     padding: 1vh;
@@ -21,7 +21,7 @@
 }
 
 .CustomRulesPanel{
-    background-color: rgb(214, 214, 214);
+    background-color: #FDFBf9;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     height: 40%;
