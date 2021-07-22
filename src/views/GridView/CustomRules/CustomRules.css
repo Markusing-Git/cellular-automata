@@ -1,0 +1,38 @@
+.Heading {
+    font-family: monospace, arial, serif; line-height: 1.25; margin: 0 0 10px; font-size: 30px; font-weight: bold;
+}
+
+.CustomRulesContainer {
+    box-shadow: 0px 0px 50px rgba(2, 2, 2, 0.384);
+}
+
+.HeadingContainer {
+    display: flex;
+    justify-content: space-between;
+    background-color: #FDFBf9;
+    height: 15%;
+    padding: 1vh 1vw;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    /* box-shadow: 0px 0px 50px rgba(2, 2, 2, 0.384); */
+
+}
+
+.CustomRulesPanel{
+    background-color: #FDFBf9;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    height: 40%;
+    padding: 1vh;
+    padding-top: 2.5vh;
+    padding-bottom: 5vh;
+    border: 0;
+    border-top: 2px solid #CCC;
+    /* box-shadow: 0px 0px 50px rgba(2, 2, 2, 0.384); */
+
+}
+
+.RulesWrapper{
+    display: flex;
+    justify-content: space-between;
+}
