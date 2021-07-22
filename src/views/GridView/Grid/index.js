@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import './Grid.css';
 import Cell from './Cell';
 
-const ROWS = 100;
-const COLS = 150;
+const ROWS = 90;
+const COLS = 176;
 
 const Grid = ({ rules }) => {
   const [grid, setGrid] = useState([]);
@@ -14,23 +15,18 @@ const Grid = ({ rules }) => {
     isAlive,
   });
 
+  // based on the rules, think binary
   const getParents = (col, row, currCells) => {
-    let parents = '';
+    let parents = 7;
     if ((col) >= 1 && col < grid[row].length - 1) {
       if (currCells[row - 1][col - 1].isAlive === true) {
-        parents = parents.concat('1');
-      } else {
-        parents = parents.concat('0');
+        parents -= 4;
       }
       if (currCells[row - 1][col].isAlive === true) {
-        parents = parents.concat('1');
-      } else {
-        parents = parents.concat('0');
+        parents -= 2;
       }
       if (currCells[row - 1][col + 1].isAlive === true) {
-        parents = parents.concat('1');
-      } else {
-        parents = parents.concat('0');
+        parents -= 1;
       }
     }
     return parents;
@@ -83,9 +79,12 @@ const Grid = ({ rules }) => {
     setGrid(generateCells());
   };
 
-  return (
-    <div className="GridContainer">
+  const handleClearClick = () => {
+    setGrid(initGrid());
+  };
 
+  return (
+    <>
       <div className="GridWrapper">
         {grid.map((row, rowIdx) => (
           <div key={rowIdx}>
@@ -100,14 +99,26 @@ const Grid = ({ rules }) => {
           </div>
         ))}
       </div>
-      <button
-        className="GenerateButton"
-        onClick={() => handleGenereateClick()}
-      >
-        Generate!
-      </button>
-    </div>
+      <div className="ButtonContainer">
+        <button
+          className="GridButton ClearButton"
+          onClick={() => handleClearClick()}
+        >
+          Clear
+        </button>
+        <button
+          className="GridButton GenerateButton"
+          onClick={() => handleGenereateClick()}
+        >
+          Generate!
+        </button>
+      </div>
+    </>
   );
+};
+
+Grid.propTypes = {
+  rules: PropTypes.array,
 };
 
 export default Grid;

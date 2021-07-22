@@ -1,0 +1,42 @@
+.Rule{
+    width: 125px;
+    height: 70px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+.Block {
+    border: 1.5px solid black;
+    border-radius: 5px;
+    background-color: white;
+    margin: 1px;
+    width: 35px;
+    height: 35px;
+    box-shadow: 2px 2px 10px rgba(2, 2, 2, 0.384);
+}
+
+.Block-select {
+    cursor: pointer;
+    margin-top: 3px;
+    transition: box-shadow 0.1s ease-in, background-color 0.4s ease-in-out;
+}
+
+.Block-select:hover{
+    box-shadow:
+    0 0 2px 1px #fff,  /* inner white */
+    0 0 6px 2px #f0f, /* middle magenta */
+    0 0 8px 3px #0ff; /* outer cyan */
+}
+
+
+@media (max-width: 1450px){
+    .Rule{
+        width: 12vmax;
+        height: 4vmax;
+    }
+    .Block {
+        width: 2vmax;
+        height: 2vmax;
+    }
+}

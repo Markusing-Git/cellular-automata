@@ -1,6 +1,9 @@
 .GridViewContainer {
     display: flex;
-    margin: auto;
-    min-height: 600px;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.GridViewWrapper{
+    min-height: 1100px;
 }
