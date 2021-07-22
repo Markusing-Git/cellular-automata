@@ -10,7 +10,7 @@ const CustomRules = ({ rules, setRules }) => {
     setRules(updatedRules);
   };
   return (
-    <div className="CustomRulesContainer">
+    <>
       <div className="HeadingContainer">
         <div className="Heading">Customize your rules</div>
       </div>
@@ -21,7 +21,7 @@ const CustomRules = ({ rules, setRules }) => {
           ))}
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
