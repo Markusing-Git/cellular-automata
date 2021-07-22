@@ -1,18 +1,37 @@
-import React from 'react';
+import React, {useState} from 'react';
 import PropTypes from 'prop-types';
 import './CustomRules.css';
 import Rule from './Rule';
 
 const CustomRules = ({ rules, setRules }) => {
+  const [count, setCount] = useState(0);
+  const binTab = [128, 64, 32, 16, 8, 4, 2, 1];
+
   const updateRuleChange = (index, state) => {
-    const updatedRules = [...rules];
-    updatedRules[index] = state;
-    setRules(updatedRules);
+    rules[index] = state;
+    setRules(rules);
+    setCount(getCount())
   };
+
+  const getCount = () => {
+    console.log("here");
+    let cnt = 0;
+    for (let i = 0; i < rules.length; i++) {
+      if (rules[i] === true) {
+        cnt += binTab[i];
+      }
+    }
+    console.log(cnt);
+    return cnt;
+  };
+
   return (
-    <>
+    <div className="CustomRulesContainer">
       <div className="HeadingContainer">
-        <div className="Heading">Customize your rules</div>
+        <div className="Heading">Customize your rule</div>
+        <div className="Heading">
+          Rule:{' '}{count}
+       </div>
       </div>
       <div className="CustomRulesPanel">
         <div className="RulesWrapper">
@@ -21,7 +40,7 @@ const CustomRules = ({ rules, setRules }) => {
           ))}
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
