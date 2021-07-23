@@ -8,6 +8,7 @@ const COLS = 176;
 
 const Grid = ({ rules }) => {
   const [grid, setGrid] = useState([]);
+  const [tab, setTab] = useState(1);
 
   const createCell = (col, row, isAlive) => ({
     col,
@@ -42,8 +43,10 @@ const Grid = ({ rules }) => {
     for (let row = 0; row < ROWS; row++) {
       const currentRow = [];
       for (let col = 0; col < COLS; col++) {
-        if (row === 0 && col === COLS / 2) {
+        if (tab === 1 && row === 0 && col === COLS / 2) {
           currentRow.push(createCell(col, row, true));
+        } else if (tab === 2 && row === 0) {
+          currentRow.push(createCell(col, row, Math.random() < 0.5));
         } else {
           currentRow.push(createCell(col, row, false));
         }
@@ -58,8 +61,12 @@ const Grid = ({ rules }) => {
     for (let row = 0; row < ROWS; row++) {
       const currentRow = [];
       for (let col = 0; col < COLS; col++) {
-        if (row === 0 && col === COLS / 2) {
+        // create static grid with one starting point
+        if (tab === 1 && row === 0 && col === COLS / 2) {
           currentRow.push(createCell(col, row, true));
+        } else if (tab === 2 && row === 0) {
+          // create wolfram classes with random starting points.
+          currentRow.push(createCell(col, row, Math.random() < 0.5));
         } else if (row !== 0 && reproduce(col, row, cells)) {
           currentRow.push(createCell(col, row, true));
         } else {
@@ -73,7 +80,7 @@ const Grid = ({ rules }) => {
 
   useEffect(() => {
     setGrid(initGrid());
-  }, []);
+  }, [tab]);
 
   const handleGenereateClick = () => {
     setGrid(generateCells());
@@ -83,8 +90,26 @@ const Grid = ({ rules }) => {
     setGrid(initGrid());
   };
 
+  const handleTabClick = (tabIdx) => {
+    setTab(tabIdx);
+  };
+
   return (
     <>
+      <div
+        className="Tab"
+        onClick={() => handleTabClick(1)}
+        style={tab !== 1 ? { zIndex: '0' } : { zIndex: '1' }}
+      >
+        Static automaton
+      </div>
+      <div
+        className="Tab"
+        onClick={() => handleTabClick(2)}
+        style={tab !== 2 ? { zIndex: '0' } : { zIndex: '1' }}
+      >
+        Wolfram classes
+      </div>
       <div className="GridWrapper">
         {grid.map((row, rowIdx) => (
           <div key={rowIdx}>
@@ -101,12 +126,14 @@ const Grid = ({ rules }) => {
       </div>
       <div className="ButtonContainer">
         <button
+          type="button"
           className="GridButton ClearButton"
           onClick={() => handleClearClick()}
         >
           Clear
         </button>
         <button
+          type="button"
           className="GridButton GenerateButton"
           onClick={() => handleGenereateClick()}
         >
