@@ -79,9 +79,23 @@
     width: 30%;
 }
 
-@media (max-height: 730px){
+@media (max-width: 1600px) {
     .Cell{
         width: 7px;
         height: 7px;
+    }
+    .GridWrapper{
+        width: fit-content;
+    }
+}
+
+@media (max-width: 1430px) {
+    .Cell{
+        width: 5px;
+        height: 5px;
+    }
+
+    .GridWrapper{
+        width: fit-content;
     }
 }
