@@ -4,32 +4,33 @@
 
 .CustomRulesContainer {
     box-shadow: 0px 0px 50px rgba(2, 2, 2, 0.384);
+    background-color:#FDFBf9 ;
+    border-radius: 5px;
+    margin-bottom: 10%;
 }
 
 .HeadingContainer {
     display: flex;
     justify-content: space-between;
-    background-color: #FDFBf9;
     height: 15%;
     padding: 1vh 1vw;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    /* box-shadow: 0px 0px 50px rgba(2, 2, 2, 0.384); */
-
 }
 
 .CustomRulesPanel{
-    background-color: #FDFBf9;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
     height: 40%;
     padding: 1vh;
     padding-top: 2.5vh;
     padding-bottom: 5vh;
-    border: 0;
-    border-top: 2px solid #CCC;
-    /* box-shadow: 0px 0px 50px rgba(2, 2, 2, 0.384); */
 
+}
+
+.Divider{
+    border: 0;
+    height: 5px;
+    margin-left: 1%;
+    margin-right: 1%;
+    background-color: rgb(209, 209, 209);
+    /* background: linear-gradient(to right, rgb(139, 139, 139), rgba(139, 139, 139, 0.2), rgba(139, 139, 139, 1)) */
 }
 
 .RulesWrapper{

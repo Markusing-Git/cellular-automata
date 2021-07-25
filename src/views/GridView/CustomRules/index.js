@@ -33,6 +33,7 @@ const CustomRules = ({ rules, setRules }) => {
           {count}
         </div>
       </div>
+      <div className="Divider" />
       <div className="CustomRulesPanel">
         <div className="RulesWrapper">
           {rules.map((rule, index) => (
