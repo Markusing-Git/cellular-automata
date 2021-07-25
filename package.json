@@ -1,10 +1,10 @@
 {
-  "name": "react-init",
+  "name": "Cellular-Automata",
   "version": "1.0.0",
-  "description": "Basic React incl. Babel, Webpack and ESLint",
+  "description": "Cellular Automata visualizer",
   "main": "index.js",
-  "repository": "https://github.com/casilj/react-init",
-  "author": "Simon Ljungqvist",
+  "repository": "https://github.com/Markusing-Git/cellular-automata.git",
+  "author": "Markus Ingemarsson",
   "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.11.15",
