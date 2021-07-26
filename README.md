@@ -18,9 +18,11 @@ Webpack will run the client on http://localhost:8008
 
 Define the rules by activating or deactivating cells. A binary based counter will show what rule you have chosen.  
 When the rules are decided, click generate to watch the magic happen! :sparkles:  
+
 ![Alt Text](https://github.com/Markusing-Git/cellular-automata/blob/main/resources/static.gif)
 
 ### Starting with a random initial state  
 
 To generate cells from a random state, switch over to the other tab named "wolfram classes"  
+
 ![Alt Text](https://github.com/Markusing-Git/cellular-automata/blob/main/resources/wolfram.gif)
