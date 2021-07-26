@@ -6,7 +6,7 @@ const Cell = ({ row, col, isAlive }) => {
   const extraClassName = isAlive ? 'Cell-alive' : '';
 
   const animation = {
-    // transition: 'background-color 0.1s ease',
+    transition: 'background-color 0.2s ease',
     transitionDelay: `${(row / 50)}s`,
   };
 
