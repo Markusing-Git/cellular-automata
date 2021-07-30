@@ -38,25 +38,8 @@ const Grid = ({ rules }) => {
     return rules[parents];
   };
 
-  const initGrid = () => {
-    const cells = [];
-    for (let row = 0; row < ROWS; row++) {
-      const currentRow = [];
-      for (let col = 0; col < COLS; col++) {
-        if (tab === 1 && row === 0 && col === COLS / 2) {
-          currentRow.push(createCell(col, row, true));
-        } else if (tab === 2 && row === 0) {
-          currentRow.push(createCell(col, row, Math.random() < 0.5));
-        } else {
-          currentRow.push(createCell(col, row, false));
-        }
-      }
-      cells.push(currentRow);
-    }
-    return cells;
-  };
-
-  const generateCells = () => {
+  // set isGenerate false if initatiing or clearing
+  const generateCells = (isGenerate) => {
     const cells = [];
     for (let row = 0; row < ROWS; row++) {
       const currentRow = [];
@@ -67,7 +50,7 @@ const Grid = ({ rules }) => {
         } else if (tab === 2 && row === 0) {
           // create wolfram classes with random starting points.
           currentRow.push(createCell(col, row, Math.random() < 0.5));
-        } else if (row !== 0 && reproduce(col, row, cells)) {
+        } else if (isGenerate && row !== 0 && reproduce(col, row, cells)) {
           currentRow.push(createCell(col, row, true));
         } else {
           currentRow.push(createCell(col, row, false));
@@ -79,15 +62,15 @@ const Grid = ({ rules }) => {
   };
 
   useEffect(() => {
-    setGrid(initGrid());
+    setGrid(generateCells(false));
   }, [tab]);
 
   const handleGenereateClick = () => {
-    setGrid(generateCells());
+    setGrid(generateCells(true));
   };
 
   const handleClearClick = () => {
-    setGrid(initGrid());
+    setGrid(generateCells(false));
   };
 
   const handleTabClick = (tabIdx) => {
